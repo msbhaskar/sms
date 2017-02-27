@@ -230,12 +230,6 @@
     <Compile Include="Results\WebApiChallengeResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\boottodolist.js" />
-    <Content Include="app\components\todolist\todolist.component.css" />
-    <Content Include="app\components\todolist\todolist.component.html" />
-    <Content Include="app\components\todolist\todolist.component.js" />
-    <Content Include="app\services\app.service.todolist.js" />
-    <Content Include="app\utils\HttpHelpers.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -347,10 +341,6 @@
     <Content Include="Content\Themes\Moderna\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Themes\Moderna\fonts\FontAwesome.otf" />
     <Content Include="package.json" />
-    <Content Include="app\boottodolist.js.map" />
-    <Content Include="app\components\todolist\todolist.component.js.map" />
-    <Content Include="app\services\app.service.todolist.js.map" />
-    <Content Include="app\utils\HttpHelpers.js.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -363,6 +353,10 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\TypeLite.Net4.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TypeLite.Net41.d.ts</LastGenOutput>
+    </Content>
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
@@ -417,6 +411,7 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\UserToolbar.cshtml" />
+    <Content Include="Scripts\Manager.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Providers\" />
@@ -438,13 +433,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\boottodolist.ts" />
-    <TypeScriptCompile Include="app\components\todolist\todolist.component.ts" />
-    <TypeScriptCompile Include="app\services\app.service.todolist.ts" />
-    <TypeScriptCompile Include="app\utils\HttpHelpers.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -12,7 +12,7 @@
 
     using StudentManagementSystem.Authentication.Managers;
     using StudentManagementSystem.Authentication.Models;
-    using StudentManagementSystem.Web.Models;
+    using StudentManagementSystem.Data.ViewModels;
 
     [Authorize]
     public class AccountController : Controller
@@ -317,7 +317,11 @@
                 userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
             return
                 this.View(
-                    new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+                    new SendCodeViewModel
+                        {
+                            Providers = factorOptions,
+                            ReturnUrl = returnUrl, RememberMe = rememberMe
+                        });
         }
 
         // POST: /Account/SendCode

@@ -1,4 +1,4 @@
-﻿namespace StudentManagementSystem.Web.Models
+﻿namespace StudentManagementSystem.Data.ViewModels
 {
     // Models returned by MeController actions.
     public class GetViewModel

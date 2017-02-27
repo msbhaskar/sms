@@ -8,6 +8,8 @@ namespace StudentManagementSystem.Shared
 
     using Microsoft.Practices.Unity;
 
+    using MongoDB.Driver;
+
     /// <summary>
     /// Specifies the Unity configuration for the main container.
     /// </summary>
@@ -41,6 +43,10 @@ namespace StudentManagementSystem.Shared
 
             // TODO: Register your types here
             RegisterCommonMvcTypes(container);
+
+            container
+                .RegisterFactory<IMongoClient>(() => new MongoClient(Application.DatabaseConnection), PerRequestLifetimeManager())
+                .RegisterFactory(() => Application.UnityContainer.Resolve<IMongoClient>().GetDatabase(Application.DatabaseName), PerRequestLifetimeManager());
 
             // container.RegisterFactory()
         }

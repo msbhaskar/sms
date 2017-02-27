@@ -10,7 +10,7 @@
     using Microsoft.Owin.Security;
 
     using StudentManagementSystem.Authentication.Managers;
-    using StudentManagementSystem.Web.Models;
+    using StudentManagementSystem.Data.ViewModels;
 
     [Authorize]
     public class ManageController : Controller

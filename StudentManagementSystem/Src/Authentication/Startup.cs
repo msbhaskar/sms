@@ -1,7 +1,4 @@
-﻿
-using StudentManagementSystem.Authentication;
-
-[assembly: Microsoft.Owin.OwinStartup(typeof(Startup))]
+﻿[assembly: Microsoft.Owin.OwinStartup(typeof(StudentManagementSystem.Authentication.Startup))]
 namespace StudentManagementSystem.Authentication
 {
     using System;
@@ -17,6 +14,7 @@ namespace StudentManagementSystem.Authentication
     using StudentManagementSystem.Authentication.Managers;
     using StudentManagementSystem.Authentication.Models;
     using StudentManagementSystem.Authentication.MongoDb;
+    using StudentManagementSystem.Shared;
 
     public class Startup
     {
@@ -48,17 +46,11 @@ namespace StudentManagementSystem.Authentication
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            // app.CreatePerOwinContext(ApplicationDbContext.Create);
-
-
-            // TODO: Move identity context here
             app.CreatePerOwinContext(() =>
                 new ApplicationDatabaseContext
                     {
-                        ConnectionString =
-                            "mongodb://localhost",
-                        DatabaseName =
-                            "StudentManagementSystemDb"
+                        ConnectionString = Application.DatabaseConnection,
+                        DatabaseName = Application.DatabaseName
                     });
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);

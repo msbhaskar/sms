@@ -8,7 +8,7 @@ namespace StudentManagementSystem.Web
     using Microsoft.Practices.Unity;
     using Microsoft.Practices.Unity.Mvc;
 
-    using StudentManagementSystem.DependencyManager;
+    using StudentManagementSystem.Shared;
 
     /// <summary>Provides the bootstrapping for integrating Unity with ASP.NET MVC.</summary>
     public static class UnityWebActivator

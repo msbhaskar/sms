@@ -3,12 +3,10 @@
     using System.Web;
 
     using Microsoft.AspNet.Identity.Owin;
-    using Microsoft.Owin.Security;
     using Microsoft.Practices.Unity;
 
     using StudentManagementSystem.Authentication.Managers;
-    using StudentManagementSystem.Authentication.Models;
-    using StudentManagementSystem.DependencyManager;
+    using StudentManagementSystem.Shared;
 
     public static class Initialization
     {

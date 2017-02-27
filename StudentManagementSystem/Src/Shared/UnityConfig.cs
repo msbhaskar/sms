@@ -1,4 +1,4 @@
-namespace StudentManagementSystem.DependencyManager
+namespace StudentManagementSystem.Shared
 {
     using System;
     using System.Web;

@@ -12,7 +12,7 @@
 
     using StudentManagementSystem.Authentication.Managers;
     using StudentManagementSystem.Authentication.Models;
-    using StudentManagementSystem.Web.Models;
+    using StudentManagementSystem.Data.ViewModels;
 
     [Authorize]
     public class AccountController : Controller
@@ -166,8 +166,8 @@
         {
             if (this.ModelState.IsValid)
             {
-                var user = new ApplicationUser {
-                                       City = model.City,
+                var user = new ApplicationUser(model.Email) {
+                                    City = model.City,
                                     Email = model.Email,
                                     FirstName = model.FirstName,
                                     LastName = model.LastName,
@@ -317,7 +317,11 @@
                 userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
             return
                 this.View(
-                    new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+                    new SendCodeViewModel
+                        {
+                            Providers = factorOptions,
+                            ReturnUrl = returnUrl, RememberMe = rememberMe
+                        });
         }
 
         // POST: /Account/SendCode
@@ -402,7 +406,7 @@
                     return this.View("ExternalLoginFailure");
                 }
 
-                var user = new ApplicationUser { Email = model.Email };
+                var user = new ApplicationUser(model.Email) { Email = model.Email };
                 var result = await this.UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

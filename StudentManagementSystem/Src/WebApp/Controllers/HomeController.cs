@@ -53,5 +53,12 @@
             ViewBag.Title = "Contact US";
             return this.View();
         }
+
+        [Route("marketing/{route?}")]
+        public ActionResult Marketing()
+        {
+            ViewBag.Title = "Home";
+            return this.View("Marketing");
+        }
     }
 }

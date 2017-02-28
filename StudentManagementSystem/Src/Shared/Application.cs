@@ -19,6 +19,7 @@
             ApplicationName = ConfigurationManager.AppSettings["AppName"];
             DatabaseConnection = ConfigurationManager.AppSettings["DatabaseConnectionString"];
             DatabaseName = ConfigurationManager.AppSettings["DatabaseName"];
+            UnityContainer = UnityConfig.GetConfiguredContainer();
         }
     }
 }

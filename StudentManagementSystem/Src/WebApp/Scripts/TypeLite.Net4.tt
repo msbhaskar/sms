@@ -1,10 +1,11 @@
 ﻿<#@ template debug="false" hostspecific="True" language="C#" #>
 <#@ assembly name="$(TargetDir)TypeLite.dll" #>
 <#@ assembly name="$(TargetDir)TypeLite.Net4.dll" #>
-<#@ assembly name="$(TargetDir)$(TargetFileName)" #>
+// #@ assembly name="$(TargetDir)$(TargetFileName)" #
+<#@ assembly name="$(TargetDir)StudentManagementSystem.DataModels.dll" #>
 
-<#@ import namespace="TypeLite" #> 
-<#@ import namespace="TypeLite.Net4" #> 
+<#@ import namespace="TypeLite" #>
+<#@ import namespace="TypeLite.Net4" #>
 <#@output extension=".d.ts"#>
 
  <#@include file="Manager.ttinclude"#>
@@ -12,8 +13,9 @@
 
 <# var ts = TypeScript.Definitions()
 		.WithReference("Enums.ts")
-		.For<Models.List>()
-		.For<Models.ViewModel.JSONReturnVM<object>>();
+		//.ForLoadedAssemblies()
+		.For<StudentManagementSystem.Data.ViewModels.Schools.SchoolViewModel>()
+		.For<StudentManagementSystem.Data.ViewModels.JsonReturnViewModel<object>>();
 #>
 
 <#= ts.Generate(TsGeneratorOutput.Properties) #>

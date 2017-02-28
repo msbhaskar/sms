@@ -7,8 +7,16 @@
 
     using StudentManagementSystem.Authentication.MongoDb;
 
-    public sealed class ApplicationUser : IdentityUser<string>
+    public sealed class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        { }
+
+        public ApplicationUser(string userName)
+            : base(userName)
+        {
+
+        }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

@@ -1,0 +1,16 @@
+﻿<h1>{{title}}</h1>
+<ul class="schools">
+    <li *ngFor="let school of schools" (click)="onSelect(school)" [class.selected]="school === selected">
+        <div class="school-element">
+            <h3 id="{{school.id}}">{{school.name}}</h3>
+            <p>
+                {{school.address.building}}<br/>
+                {{school.address.street}}<br/>
+                {{school.address.city}}, {{school.address.state}} {{school.address.zipcode}}<br />
+
+            </p>
+        </div>
+    </li>
+</ul>
+
+<div class="error" *ngIf="error">{{error}}</div>

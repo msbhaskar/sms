@@ -132,6 +132,7 @@ namespace StudentManagementSystem.Authentication.MongoDb
             try
             {
                 ConfigureDefaults(user);
+                user.CreatedDate = DateTime.UtcNow;
                 await DatabaseContext.UserCollection.InsertOneAsync(user);
             }
             catch (MongoWriteException)
@@ -1193,6 +1194,7 @@ namespace StudentManagementSystem.Authentication.MongoDb
         protected virtual Task<UpdateResult> DoUserDetailsUpdate(TKey userId, UpdateDefinition<TUser> update, UpdateOptions options = null)
         {
             var filter = Builders<TUser>.Filter.Eq(x => x.Id, userId);
+            update.Set(x => x.LastEditedDate, DateTime.UtcNow);
             return DatabaseContext.UserCollection.UpdateOneAsync(filter, update, options);
         }
 
@@ -1219,6 +1221,7 @@ namespace StudentManagementSystem.Authentication.MongoDb
         {
             if (string.IsNullOrWhiteSpace(user.NormalizedUserName) || !user.NormalizedUserName.Equals(user.UserName, StringComparison.OrdinalIgnoreCase)) user.NormalizedUserName = Normalize(user.UserName);
             if (string.IsNullOrWhiteSpace(user.NormalizedEmail) || !user.NormalizedEmail.Equals(user.Email, StringComparison.OrdinalIgnoreCase)) user.NormalizedEmail = Normalize(user.Email);
+            user.LastEditedDate = DateTime.UtcNow;
         }
 
 

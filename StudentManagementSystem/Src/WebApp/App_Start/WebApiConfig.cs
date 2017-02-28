@@ -6,6 +6,8 @@
 
     using Newtonsoft.Json.Serialization;
 
+    using StudentManagementSystem.Shared;
+
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
@@ -17,6 +19,7 @@
 
             // Use camel case for JSON data.
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config.DependencyResolver = new UnityResolver(Application.UnityContainer);
 
             // Web API routes
             config.MapHttpAttributeRoutes();

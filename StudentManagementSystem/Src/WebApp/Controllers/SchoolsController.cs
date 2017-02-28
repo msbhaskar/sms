@@ -1,5 +1,6 @@
 ﻿namespace StudentManagementSystem.Web.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using System.Web.Http;
@@ -24,9 +25,10 @@
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public string Get(string userName)
         {
-            return "value";
+            throw new NotImplementedException();
+            // return await this.SchoolCollection.Find(new FilterDefinition<SchoolViewModel>()).ToListAsync();
         }
     }
 }

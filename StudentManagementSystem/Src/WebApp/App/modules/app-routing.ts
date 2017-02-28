@@ -7,15 +7,15 @@ import { SchoolsListComponent } from '../components/marketing/schools-list.compo
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/schools',
+        redirectTo: 'marketing/schools',
         pathMatch: 'full'
     },
     {
-        path: 'schools',
+        path: 'marketing/schools',
         component: SchoolsListComponent
     },
     {
-        path: 'schools/:id',
+        path: 'marketing/schools/:id',
         component: SchoolsListComponent
     }
 ];

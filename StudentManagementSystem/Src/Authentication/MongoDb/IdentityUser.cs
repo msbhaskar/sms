@@ -17,6 +17,7 @@ namespace StudentManagementSystem.Authentication.MongoDb
 
         public IdentityUser(string userName) : this()
         {
+            Id = Guid.NewGuid().ToString();
             UserName = userName;
         }
     }
@@ -114,6 +115,10 @@ namespace StudentManagementSystem.Authentication.MongoDb
         /// Used to record failures for the purposes of lockout
         /// </summary>
         public virtual int AccessFailedCount { get; set; }
+
+        public virtual DateTime CreatedDate { get; set; }
+
+        public virtual DateTime LastEditedDate { get; set; }
 
         /// <summary>
         /// Navigation property for users in the role

@@ -236,8 +236,7 @@
     <Compile Include="Results\WebApiChallengeResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\components\todolist\todolist.component.css" />
-    <Content Include="App\components\todolist\todolist.component.html" />
+    <Content Include="App\components\marketing\schools-list.view.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -382,7 +381,7 @@
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Home\_Home.cshtml" />
+    <Content Include="Views\Home\Marketing.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
@@ -453,7 +452,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="App\components\marketing\schools-list.component.ts" />
     <TypeScriptCompile Include="App\Main.ts" />
-    <None Include="App\components\todolist\todolist.component.ts1" />
     <None Include="App\services\app.service.todolist.ts1" />
     <TypeScriptCompile Include="App\modules\app-routing.ts" />
     <TypeScriptCompile Include="App\modules\app.module.ts" />

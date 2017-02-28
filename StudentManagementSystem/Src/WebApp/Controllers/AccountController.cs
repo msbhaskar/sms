@@ -166,8 +166,8 @@
         {
             if (this.ModelState.IsValid)
             {
-                var user = new ApplicationUser {
-                                       City = model.City,
+                var user = new ApplicationUser(model.Email) {
+                                    City = model.City,
                                     Email = model.Email,
                                     FirstName = model.FirstName,
                                     LastName = model.LastName,
@@ -406,7 +406,7 @@
                     return this.View("ExternalLoginFailure");
                 }
 
-                var user = new ApplicationUser { Email = model.Email };
+                var user = new ApplicationUser(model.Email) { Email = model.Email };
                 var result = await this.UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

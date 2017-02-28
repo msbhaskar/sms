@@ -13,12 +13,15 @@ export class SchoolsListService {
 
     getSchools(): Promise<SchoolViewModel[]> {
         return this.http
-            .get(this.getSchoolsUrl )
+            .get(this.getSchoolsUrl)
             .toPromise()
-            .then(response => response.json().data as SchoolViewModel[])
+            .then(this.successCallback)
             .catch(this.handleError);
     }
 
+    private successCallback(response : any) {
+        return response.json() as SchoolViewModel[];
+    }
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);

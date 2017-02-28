@@ -9,18 +9,8 @@ import SchoolViewModel = StudentManagementSystem.Data.ViewModels.Schools.SchoolV
 @Component({
     //moduleId: module.id,
     selector: 'schools-list',
-    template: `
-    <h1>{{title}}</h1>
-    <ul class="schools">
-  <li *ngFor="let s of schools" (click)="onSelect(school)" [class.selected]="school === selected">
-    <span class="school-element">
-      <span class="badge">{{school.id}}</span> {{school.name}}
-    </span>
-  </li>
-</ul>
-
-<div class="error" *ngIf="error">{{error}}</div>
-`
+    templateUrl: '/app/components/marketing/schools-list.view.html'
+    // template: ``
 })
 export class SchoolsListComponent implements OnInit {
 
@@ -37,7 +27,10 @@ export class SchoolsListComponent implements OnInit {
     getSchools(): void {
         this.service
             .getSchools()
-            .then(schools => this.schools = schools)
+            .then(schools => {
+                this.schools = schools;
+                console.log("Count:" + schools.length);
+            })
             .catch(error => this.error = error);
     }
 
